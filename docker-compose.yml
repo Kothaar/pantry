@@ -26,11 +26,12 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: 'pantry'
+      MYSQL_DATABASE: pantry-db
       MYSQL_USER: user
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_TCP_PORT: 3306
     ports:
-      - "3306:3306"
+      - '3306:3306'
     expose:
       - '3306'
     volumes:
