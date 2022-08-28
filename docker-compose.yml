@@ -21,3 +21,19 @@ services:
     env_file:
       - .env
     command: npm run dev
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: 'pantry'
+      MYSQL_USER: user
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    expose:
+      - '3306'
+    volumes:
+      - pantry-db:/var/lib/mysql
+volumes:
+  pantry-db:
