@@ -10,10 +10,8 @@ const password = 'u4ouEEKTZkE8';
 
 console.log('started');
 const sequelize = new Sequelize(db, username, password, {
+  host: 'mysql',
   dialect: 'mysql',
-  host: '127.0.0.1',
-  port: 3306,
-  logging: false,
 });
 
 app.get(
