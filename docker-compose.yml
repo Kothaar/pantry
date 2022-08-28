@@ -15,6 +15,7 @@ services:
     volumes:
       - ./src:/usr/src/app/src
       - ./nodemon.json:/usr/src/app/nodemon.json
+    container_name: pantry-docker
     ports:
       - 3001:${PORT}
     env_file:

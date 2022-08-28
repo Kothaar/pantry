@@ -1,4 +1,5 @@
 FROM node:14 as base
+ENV NODE_ENV=development
 WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 RUN npm install && npm cache clean --force
@@ -8,5 +9,5 @@ COPY .env ./env
 COPY . .
 EXPOSE ${PORT}
 FROM base as production
-RUN npm run build
 ENV NODE_ENV=production
+RUN npm run build
