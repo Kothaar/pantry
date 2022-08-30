@@ -25,9 +25,12 @@ app.get(
       .catch((err) => {
         console.error('unable to connect to database: \n', err);
       });
+
     res.send('connected?');
   }
 );
+
+app.use('/pantry/v1/items', require('./v1/routes/items'));
 
 // define a route handler for the default home page
 app.get('/', function (req: any, res: { send: (arg0: string) => void }): void {
